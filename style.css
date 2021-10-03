@@ -1,0 +1,136 @@
+@font-face {
+    font-family: Roboto;
+    src: url(/fonts/RobotoMono.ttf);
+}
+
+html{
+    height: 100%;
+}
+body{
+    background-color: cadetblue;
+    min-height:100%;
+    margin: 0;
+    padding: 0%;
+    display: grid;
+    grid-template: 
+        "headers headers headers" 15%
+        ".       .       .      " auto
+        ".       clock   .      " 15%
+        ".       button  .      " 10%
+        ".       .       .      " auto
+        "footers footers footers" 10%/
+        33.33%   33.33%  33.33%;
+}
+#back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: opacity(4%);
+    z-index: 1;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(51, 103, 107);
+}
+a:hover{
+    color:rgb(32, 77, 82);
+}
+p {
+    font-family: Roboto;
+    display: inline;
+    user-select: none;
+    font-size: 210%;
+    font-weight: bold;
+    color: rgb(39, 64, 66);
+}
+
+header{
+    background-color: rgb(116, 193, 196);
+    grid-area: headers;
+    z-index: 2;
+}
+#title{
+    font-family: Roboto;
+    font-size: 210%;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(39, 64, 66);
+    margin: 1%;
+    user-select: none;
+}
+
+#clock{
+    background-color: rgb(116, 193, 196);
+    grid-area: clock;
+    text-align: center;
+    padding: 5%;
+    border-radius: 10px 10px 0px 0px;
+    user-select: none;
+    z-index: 2;
+}
+#btn{
+    background-color: rgb(102, 171, 173);
+    grid-area: button;
+    text-align: center;
+    padding: 2.5%;
+    border-radius: 0px 0px 10px 10px;
+    user-select: none;
+    z-index: 2;
+}
+
+footer{
+    grid-area: footers;
+    background-color: rgb(116, 193, 196);
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 90%;
+    color: rgb(39, 64, 66);
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    z-index: 2;
+}
+button{
+    font-family: Roboto;
+    font-weight:600;
+    background-color: rgb(116, 193, 196);
+    border-style: solid;
+    border-color: rgb(58, 96, 99);
+    border-radius: 5px;
+    color: rgb(39, 64, 66);
+    user-select: none;
+}
+button:disabled{
+    color: rgb(97, 125, 128);
+    border-color: rgb(128, 162, 165);
+    background-color: rgb(116, 193, 196)
+}
+
+@media (orientation:portrait){
+    body{
+        display: grid;
+        grid-template: 
+            "headers headers headers" 10%
+            ".       .       .      " 5%
+            ".       clock   .      " 13%
+            ".       button  .      " 10%
+            ".       .       .      " auto
+            "footers footers footers" 6%/
+                10%   80%  10%;
+    }
+    #title{
+        font-size: 600%;
+    }
+    p {
+        font-size: 600%;
+    }
+    button{
+        font-size: 280%;
+        padding: 2%;
+        margin-left: 5%;
+    }
+    footer{
+        font-size: 200%;
+    }
+}

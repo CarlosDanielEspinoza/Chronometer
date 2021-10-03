@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Chronometer</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <img src="watch.jpg" alt="watch" id="back">
+    <header>
+      <h2 id="title"> CHRONOMETER</h2>
+    </header>
+    <div id="clock">
+      <p id="h"> 00 </p>
+      <p>:</p>
+      <p id="m"> 00 </p>
+      <p>:</p>
+      <p id="s"> 00 </p>
+    </div>
+    <div id="btn">
+      <button id="start"> Start </button>
+      <button id="pause" disabled> Pause</button>
+      <button id="restart" disabled> Restart </button>
+    </div>
+    <footer>
+      <h5> Made by <a href="https://github.com/CarlosDanielEspinoza">Carlos Espinoza</a></h5>
+    </footer>
+
+    <script>
+        const start = document.querySelector("#start");
+        const pause = document.querySelector("#pause");
+        const restart = document.querySelector("#restart");
+        const hour = document.querySelector("#h");
+        const minute = document.querySelector("#m");
+        const second = document.querySelector("#s");
+
+        let time = 0;
+        let timeMinute = 0;
+        let timeHour = 0;
+
+        function startClock(){ //Chronometer
+          if(second.textContent == 59){
+            time = 0;
+            timeMinute = timeMinute + 1;
+            second.textContent = `0${time}`;
+            
+            if(timeMinute < 10){
+              minute.textContent = `0${timeMinute}`;
+            }else{
+              minute.textContent = timeMinute;
+            }
+
+          }else if(minute.textContent == 59){
+            time = 0;
+            timeMinute = 0;
+            timeHour = timeHour + 1;
+            second.textContent = `0${time}`;
+            minute.textContent = `0${timeMinute}`;
+            hour.textContent = `0${timeHour}`;
+            if(timeHour < 10){
+            }else{
+              hour.textContent = timeHour;
+            }
+            
+
+          }else{
+            time = time + 1;
+            if(time < 10){
+              second.textContent = `0${time}`;
+            }else{
+              second.textContent = time;
+            }
+          }
+        }
+
+        let varStart; //Variable que contendrá la función setInterval.
+        start.addEventListener("click", function(){
+          varStart = setInterval(startClock,1000);
+          start.disabled = true;
+          pause.disabled = false;
+          restart.disabled = false;
+        });
+
+        pause.addEventListener("click", function(){
+          clearInterval(varStart);
+          start.disabled = false;
+          pause.disabled = true;
+        });
+
+        restart.addEventListener("click",function(){
+          clearInterval(varStart);
+          start.disabled = false;
+          pause.disabled = true;
+          restart.disabled = true;
+          time = 0;
+          timeMinute = 0;
+          timeHour = 0;
+          second.textContent = "00";
+          minute.textContent = "00";
+          hour.textContent = "00";
+        });
+
+    </script>
+  </body>
+
+</html>
