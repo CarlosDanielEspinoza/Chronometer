@@ -37,7 +37,7 @@ a:hover{
     color:rgb(32, 77, 82);
 }
 p {
-    font-family: Roboto;
+    font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
     display: inline;
     user-select: none;
     font-size: 210%;
@@ -51,7 +51,7 @@ header{
     z-index: 2;
 }
 #title{
-    font-family: Roboto;
+    font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
     font-size: 210%;
     font-weight: bold;
     text-align: center;
@@ -92,7 +92,7 @@ footer{
     z-index: 2;
 }
 button{
-    font-family: Roboto;
+    font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
     font-weight:600;
     background-color: rgb(116, 193, 196);
     border-style: solid;
